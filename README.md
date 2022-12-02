@@ -1,2 +1,2 @@
 # ViCue
-test fot ViCue
+test for ViCue
