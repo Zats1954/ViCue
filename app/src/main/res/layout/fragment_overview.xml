@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="ru.zatsoft.vicuetest.overview.KlipViewModel" />
@@ -13,38 +14,84 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.android.marsphotos.overview.KlipFragment">
+        tools:context="ru.zatsoft.vicuetest.overview.KlipFragment">
 
-        <ImageView
-            android:id="@+id/imageView"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintVertical_weight = "3"
-            app:layout_constraintBottom_toTopOf="@id/photos_grid"
+            android:paddingTop="100dp"
+            app:layout_constraintBottom_toTopOf="@id/btnText"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
- />
+            app:layout_constraintVertical_weight="6">
+
+
+
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/frame1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                card_view:cardCornerRadius="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+
+                <VideoView
+                    android:id="@+id/videoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:id = "@+id/edText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint = "insert text hier"
+                    android:textColor="#FF00CC00"
+                    android:elevation = "0dp" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <Button
+            android:id="@+id/btnText"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:text="TEXT"
+            app:layout_constraintBottom_toTopOf="@+id/photos_grid"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            app:layout_constraintVertical_weight="1" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/photos_grid"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:padding="6dp"
-            app:layout_constraintVertical_weight = "1"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/btnText"
+            app:layout_constraintVertical_weight="1"
             app:listData="@{viewModel.photos}"
-            tools:itemCount="16"
-            tools:listitem="@layout/grid_view_item" >
-        </androidx.recyclerview.widget.RecyclerView>
+            tools:itemCount="4"
+            tools:listitem="@layout/grid_view_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

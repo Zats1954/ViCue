@@ -1,12 +1,10 @@
 package ru.zatsoft.vicuetest.overview
 
-import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import ru.zatsoft.vicuetest.bindImage
 import ru.zatsoft.vicuetest.network.Api
 import ru.zatsoft.vicuetest.network.Klip
 

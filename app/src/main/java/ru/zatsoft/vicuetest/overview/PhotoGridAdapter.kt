@@ -11,6 +11,7 @@ import ru.zatsoft.vicuetest.network.Klip
 
 class PhotoGridAdapter(private val onItemClicked: (position: Int) -> Unit): ListAdapter<Klip,
         PhotoGridAdapter.PhotoViewHolder>(DiffCallback) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
         return PhotoViewHolder(GridViewItemBinding.inflate(
                                     LayoutInflater.from(parent.context)),
@@ -22,6 +23,7 @@ class PhotoGridAdapter(private val onItemClicked: (position: Int) -> Unit): List
         holder.bind(klipPhoto)
     }
 
+
     class PhotoViewHolder (private var binding: GridViewItemBinding,
                            private val onItemClicked: (position: Int) -> Unit
     ) :RecyclerView.ViewHolder(binding.root), View.OnClickListener {
@@ -30,7 +32,6 @@ class PhotoGridAdapter(private val onItemClicked: (position: Int) -> Unit): List
         }
         fun bind(KlipPhoto: Klip) {
             binding.photo = KlipPhoto
-
             binding.executePendingBindings()
         }
 

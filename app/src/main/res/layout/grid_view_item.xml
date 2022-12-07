@@ -9,12 +9,11 @@
             type="ru.zatsoft.vicuetest.network.Klip" />
     </data>
     <ImageView
-        android:id="@+id/mars_image"
+        android:id="@+id/klip_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:adjustViewBounds="true"
         android:padding="2dp"
         app:imageUrl="@{photo.poster_url}"
         tools:src="@tools:sample/backgrounds/scenic"/>
+
 </layout>
